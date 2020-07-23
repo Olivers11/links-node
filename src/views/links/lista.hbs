@@ -1,0 +1,37 @@
+<style>
+    a{
+        list-style: none;
+        text-decoration: none;
+    }
+</style>
+
+
+<div class="container p-4">
+    <!-- #watch the elements of the database-->
+    <div class="row">
+        {{#each links}}
+            <div class="col-md-3">
+                <div class="card-body bg-light">
+                    <a href="{{url}}" target="_blank">
+                        <h3 class="card-title text-uppercase">
+                            {{title}}
+                        </h3>
+                    </a>
+                    <div class="card-body">
+                        <p class="m-2">{{description}}</p>
+                        <p> {{timeago created_at}} </p>
+                    </div>
+                    <a href="/links/update/{{id}}" class="btn btn-primary btn-block">Editar</a>
+                    <a href="/links/delete/{{id}}" class="btn btn-danger btn-block">Eliminar</a>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>No hay ningun link....</p>
+                    <a href="/links/add" class="btn btn-primary btn-block">Crear Uno!</a>
+                </div>
+            </div>    
+        {{/each}}
+    </div>
+</div>
